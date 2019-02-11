@@ -1,0 +1,65 @@
+<!-- NAVBAR -->
+
+<nav class="navbar">
+  <a href="/topics" class="logo">TOPICS</a>
+  <ul class="main-nav">
+
+    <li>
+      <a class="nav-item" href="/topics">active topics</a>
+    </li>
+
+    <li>
+      <a href="/auth/logout" class="nav-item"><img class="logouticon" src="/images/logout.png"><button id="logout" class="nav-item">log
+          out</button></a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+<a href="/topics">Zurück</a>
+
+<div id="alltopics" class="emptyspace">
+{{#each sortedtopics}}
+<div id="topicandvote">
+
+<div id="votes">
+      <button class="upvote" data-topic-id="{{this.id}}" disabled>
+      <img class="voteicon uppink" src="/images/up-chevron-button1.png">
+      <p class="oneup" search-id="{{this.id}}">{{this.upvote.length}}</p></button>
+      <button class="downvote" data-topic-id="{{this.id}}" disabled>
+      <p class="onedown" search-id="{{this.id}}">{{this.downvote.length}}</p>
+      <img class="voteicon uppink" changedownpink={{this.id}} src="/images/chevron-sign-down2.png">
+      </button>
+</div>
+
+
+<div class="singletopic" topicId="{{this.id}}">
+  <div class="textarchive" hide="{{this.id}}">
+
+<div class="textboxarchive">
+
+<h2>{{this.title}}</h2>
+<!--OFFICIAL RESPONSE--> 
+{{#if this.officialresponse}}
+<a class="showor"><button class="responsebutton" click="{{this.id}}">RESPONSE</button></a>
+{{/if}}
+<!--OFFICIAL RESPONSE--> 
+</div>
+<p class="truncate">{{this.maintext}}</p>
+<p class="timestamp archivetime">{{this.created_at}}</p>
+</div>
+
+<div class="singleor" orId="{{this.id}}">
+  <div class="orheader">
+  <h3>OFFICIAL RESPONSE</h3>
+  <a class="responsebutton x" click="{{this.id}}">X</a>
+  </div>
+  {{this.officialresponse}}
+</div>
+
+</div>
+</div>
+{{/each}}
+</div>

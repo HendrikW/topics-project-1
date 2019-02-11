@@ -1,0 +1,25 @@
+<header class="header">TOPICS</header>
+
+
+<div class="formcontainer">
+ <form id="form" action="/auth/signup" method="POST">
+    <label for="email">email</label><br>
+    <input type="email" name="email"
+      placeholder="gilead@thehandmaidstale.de">
+
+    <label for="password">password</label><br>
+    <input type="password" name="password"
+      placeholder="maythelordopen">
+
+    <button>create account</button>
+  </form>
+
+  <a class="createaccount" href="/auth/login">back to log in</a>
+
+</div>
+<footer class="footer"><ul class="footer-nav"><li class="footer-navitem">imprint</li><li class="footer-navitem">about</li><li class="footer-navitem">susalara inc. 2019</li></ul></footer>
+
+
+  {{#if err}}
+  {{err}}
+  {{/if}}
