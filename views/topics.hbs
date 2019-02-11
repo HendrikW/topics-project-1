@@ -1,0 +1,81 @@
+<!-- NAVBAR -->
+
+<nav class="navbar">
+  <a href="/topics" class="logo">TOPICS</a>
+  <ul class="main-nav">
+
+
+
+    <li>
+      <button id="topicbutton" class="toggle nav-item">add topic</button>
+    </li>
+
+
+    <li>
+      <a href="/archiv" class="nav-item">archive</a>
+    </li>
+
+    <li>
+      <a href="/auth/logout" class="nav-item"><img class="logouticon" src="/images/logout.png"><button id="logout" class="nav-item">log
+          out</button></a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+
+<!-- NEW TOPIC FIELD-->
+<div class="topicfieldback"></div>
+<div class="topicfield">
+  {{#if err}}
+  {{err}}
+  {{/if}}
+  <h1>add new topic</h1>
+
+  <form class="topicsform" action="/submittopic" method="post">
+    <label for="title">your title:</label>
+    <input name="title" id="title" required />
+    <label for="textarea">your topic:</label>
+    <textarea name="maintext" id="textarea" required></textarea>
+    <div class="newtopicbuttons">
+      <button class="toggle">cancel</button>
+      <button type="submit">submit</button>
+    </div>
+  </form>
+
+</div>
+
+
+{{#if user.admin}}<div class="isAdmin" style="display:hidden"></div>{{/if}}
+
+
+<!-- ALL TOPICS -->
+
+<div class="sorttopics"><select id="sortby">
+    <option value="highest">highest vote</option>
+    <option value="lowest">lowest vote</option>
+    <option value="newest">most recent</option>
+  </select>
+</div>
+
+<div id="alltopics">
+
+  <script>
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        getAll("highest")
+      })
+  </script>
+</div>
+
+
+
+
+
+
+
+
+ 
